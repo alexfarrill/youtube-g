@@ -4,6 +4,7 @@ class YouTubeG
       attr_reader :max_results                     # max_results
       attr_reader :order_by                        # orderby, ([relevance], viewCount, published, rating)
       attr_reader :offset                          # start-index
+      attr_reader :restriction                     # region restriction: http://code.google.com/apis/youtube/2.0/reference.html#restrictionsp
 
       def initialize(params, options={})
         @max_results, @order_by, @offset = nil
@@ -34,7 +35,8 @@ class YouTubeG
         {
           'max-results' => @max_results,
           'orderby' => @order_by,
-          'start-index' => @offset
+          'start-index' => @offset,
+          'restriction' => @restriction
         }
       end
     end
