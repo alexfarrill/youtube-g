@@ -14,6 +14,7 @@ class YouTubeG
       attr_reader :video_format                    # format (1=mobile devices)
       attr_reader :racy                            # racy ([exclude], include)
       attr_reader :author
+      attr_reader :restriction                     # region restriction: http://code.google.com/apis/youtube/2.0/reference.html#restrictionsp
       
       def initialize(params={})
         # Initialize our various member data to avoid warnings and so we'll
@@ -55,7 +56,8 @@ class YouTubeG
           'alt' => @response_format,
           'format' => @video_format,
           'racy' => @racy,
-          'author' => @author
+          'author' => @author,
+          'restriction' => @restriction
         }
       end
 

@@ -7,6 +7,11 @@ class TestVideoSearch < Test::Unit::TestCase
     assert_equal "http://gdata.youtube.com/feeds/api/videos?vq=penguin", request.url
   end
   
+  def test_should_build_region_restriction_query_url
+    request = YouTubeG::Request::VideoSearch.new(:query => "penguin", :restriction => "US")
+    assert_equal "http://gdata.youtube.com/feeds/api/videos?restriction=US&vq=penguin", request.url
+  end
+  
   def test_should_build_multiword_metasearch_query_url
     request = YouTubeG::Request::VideoSearch.new(:query => 'christina ricci')
     assert_equal "http://gdata.youtube.com/feeds/api/videos?vq=christina+ricci", request.url
